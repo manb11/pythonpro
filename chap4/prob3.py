@@ -1,5 +1,5 @@
 import random as r
-num = r.randrange(1,10)
+num = r.randrange(1,100)
 
 print("Welcome to 'Guess My Number'!")
 print("")
