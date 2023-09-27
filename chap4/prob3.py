@@ -1,7 +1,7 @@
 import random as r
 num = r.randrange(1,100)
 
-print("Welcome to 'Guess My Number'!")
+print("         Welcome to 'Guess My Number'!")
 print("")
 print("I'm thinking of a number between 1 and 100.")
 print("Try to guess it in as few attempts as possible.")
