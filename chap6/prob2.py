@@ -30,3 +30,4 @@ while True:
         for entry in scores:
             score_input, name_input = entry
             print(name_input, "\t", score_input)
+ 
