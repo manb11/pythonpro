@@ -1,0 +1,99 @@
+import random
+
+print("")
+print("  Welcome to the greatest intellectual challenge of all time: Tic-Tac-Toc.")
+print("  This will be a showdown between your human brain and my silicon processor.")
+print("")
+print("  You will make your move known by entering a number, 0-8. the number")
+print("  will correspond to the board position as illustrated:")
+
+
+# 빈 틱택토 보드 생성
+board = [" " for _ in range(9)]
+
+# 틱택토 보드를 출력하는 함수
+def display_board(board):
+    print("\t" + board[0] + " | " + board[1] + " | " + board[2])
+    print("\t" + "---------")
+    print("\t" + board[3] + " | " + board[4] + " | " + board[5])
+    print("\t" + "---------")
+    print("\t" + board[6] + " | " + board[7] + " | " + board[8])
+
+
+print(display_board(board))
+print("  Prepare yourself, human. the ultimate battle is about to begin.")
+print("")
+
+
+# 승리 조건 확인
+def check_win(board, player):
+    # 가로, 세로, 대각선의 승리 조건을 확인
+    for i in range(3):
+        if (
+            board[i] == board[i + 3] == board[i + 6] == player or
+            board[i * 3] == board[i * 3 + 1] == board[i * 3 + 2] == player
+        ):
+            return True
+    if (
+        board[0] == board[4] == board[8] == player or
+        board[2] == board[4] == board[6] == player
+    ):
+        return True
+    return False
+
+# 사용자로부터 먼저 시작할 것인지 컴퓨터로부터 시작할 것인지 입력 받는 함수
+def choose_first_player():
+    choice = input("Do you require the first move? (Y/N): ").strip().lower()
+    return choice == "y"
+
+# 컴퓨터 플레이어의 움직임을 결정하는 함수
+def computer_move(board):
+    available_moves = [i for i, val in enumerate(board) if val == " "]
+    if available_moves:
+        return random.choice(available_moves)
+    else:
+        return None
+
+# 게임 실행 함수
+def play_game():
+    player_starts = choose_first_player()
+    current_player = "X" if player_starts else "O"
+    
+    while True:
+        display_board(board)
+        if current_player == "X":
+            move = int(input("Where will you move? <0 - 8>: "))
+            print("Fine..")
+            print("")
+        else:
+            print(f"I shall take square number {computer_move(board)}")
+            move = computer_move(board)
+
+        if move < 0 or move > 8 or board[move] != " ":
+            print("Incorrect location. try again.")
+            continue
+
+        board[move] = current_player
+
+        if check_win(board, current_player):
+            display_board(board)
+            if current_player == "X":
+                print("")
+                print("Player won !")
+                print("No, no!  It cannot be! somehow you tricked me, human.")
+                print("But never again! I, the computer, so swears it!")
+            else:
+                print("")
+                print("Computer won !")
+                print("As O predicted, human, I am triumphant once more.")
+                print("Proof that computers are superior to humans in all regards.")
+            break
+        elif " " not in board:
+            display_board(board)
+            print("A draw")
+            break
+
+        current_player = "O" if current_player == "X" else "X"
+
+# 게임 실행
+play_game()
