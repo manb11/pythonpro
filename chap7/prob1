@@ -2,7 +2,7 @@ import random
 
 print("")
 print("  Welcome to the greatest intellectual challenge of all time: Tic-Tac-Toc.")
-print("  This will be a showdown between your human brain and my silicon processor.")
+print("  This will be a showdown between your human brain and my silicon processor.") 
 print("")
 print("  You will make your move known by entering a number, 0-8. the number")
 print("  will correspond to the board position as illustrated:")
