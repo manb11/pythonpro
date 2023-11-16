@@ -61,3 +61,10 @@ for line in text_file:
 
 text_file.close()
 
+
+
+b = input("\n\nPress the enter key to exit.")
+
+if b == "":
+    print("")
+
