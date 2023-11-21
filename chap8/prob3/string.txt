@@ -1,3 +1,7 @@
+<<<<<<< HEAD
 hi
 my name
+=======
+hi my name
+>>>>>>> e41668293d603e45e716d2973335c867b39bb311
 is manb

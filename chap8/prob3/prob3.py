@@ -24,5 +24,3 @@ while True:
             print(line, end='')
         
         break
-
-        
